@@ -32,7 +32,7 @@
         app:fabSize="normal"
         android:backgroundTint="@color/white"
         app:layout_anchor="@id/recyclerViewArt"
-        tools:srcCompat="@drawable/add_button"
+        android:src="@drawable/add_button"
         app:layout_anchorGravity="bottom|right|end"
         android:layout_margin="15dp"/>
 
