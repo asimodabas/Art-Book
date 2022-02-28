@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:orientation="horizontal"
     android:padding="16dp">
 
     <ImageView
         android:id="@+id/arRowImageView"
         android:layout_width="125dp"
         android:layout_height="125dp"
-        android:src="@color/cardview_dark_background"
+        android:padding="5dp"
         android:scaleType="centerCrop"
-        android:padding="5dp"/>
+        android:src="@color/cardview_dark_background" />
 
     <LinearLayout
         android:layout_width="match_parent"

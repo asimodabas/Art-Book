@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    android:id="@+id/rootLayout"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -27,13 +26,13 @@
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:clickable="true"
-        app:maxImageSize="50dp"
-        app:fabSize="normal"
+        android:layout_margin="15dp"
         android:backgroundTint="@color/white"
-        app:layout_anchor="@id/recyclerViewArt"
+        android:clickable="true"
         android:src="@drawable/add_button"
+        app:fabSize="normal"
+        app:layout_anchor="@id/recyclerViewArt"
         app:layout_anchorGravity="bottom|right|end"
-        android:layout_margin="15dp"/>
+        app:maxImageSize="50dp" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
