@@ -1,4 +1,4 @@
-package com.asimodabas.art_book.view
+package com.asimodabas.art_book.view.view
 
 import android.os.Bundle
 import android.view.View
@@ -19,7 +19,7 @@ class ArtDetailsFragment : Fragment(R.layout.fragment_art_detail) {
         fragmentBinding = binding
 
         binding.artImageView.setOnClickListener {
-            findNavController().navigate(ArtDetailsFragmentDirections.actionArtDetailsFragmentToImageAPIFragment())
+            findNavController().navigate(com.asimodabas.art_book.view.ArtDetailsFragmentDirections.actionArtDetailsFragmentToImageAPIFragment())
         }
 
         val callback = object : OnBackPressedCallback(true){

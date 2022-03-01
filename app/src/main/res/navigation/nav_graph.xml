@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/artFragment"
-        android:name="com.asimodabas.art_book.view.ArtFragment"
+        android:name="com.asimodabas.art_book.view.view.ArtFragment"
         android:label="ArtFragment" >
         <action
             android:id="@+id/action_artFragment_to_artDetailsFragment"
@@ -14,7 +14,7 @@
     </fragment>
     <fragment
         android:id="@+id/artDetailsFragment"
-        android:name="com.asimodabas.art_book.view.ArtDetailsFragment"
+        android:name="com.asimodabas.art_book.view.view.ArtDetailsFragment"
         android:label="ArtDetailsFragment" >
         <action
             android:id="@+id/action_artDetailsFragment_to_imageAPIFragment"
@@ -22,6 +22,6 @@
     </fragment>
     <fragment
         android:id="@+id/imageAPIFragment"
-        android:name="com.asimodabas.art_book.view.ImageAPIFragment"
+        android:name="com.asimodabas.art_book.view.view.ImageAPIFragment"
         android:label="ImageAPIFragment" />
 </navigation>

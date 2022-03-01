@@ -1,4 +1,4 @@
-package com.asimodabas.art_book.view
+package com.asimodabas.art_book.view.view
 
 import android.os.Bundle
 import android.view.View
@@ -18,7 +18,7 @@ class ArtFragment : Fragment(R.layout.fragment_arts) {
         fragmentBinding = binding
 
         binding.fab.setOnClickListener {
-            findNavController().navigate(ArtFragmentDirections.actionArtFragmentToArtDetailsFragment())
+            findNavController().navigate(com.asimodabas.art_book.view.ArtFragmentDirections.actionArtFragmentToArtDetailsFragment())
         }
     }
 

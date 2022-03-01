@@ -1,4 +1,4 @@
-package com.asimodabas.art_book.view
+package com.asimodabas.art_book.view.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
