@@ -18,7 +18,7 @@ class ArtFragment : Fragment(R.layout.fragment_arts) {
         fragmentBinding = binding
 
         binding.fab.setOnClickListener {
-            findNavController().navigate(com.asimodabas.art_book.view.ArtFragmentDirections.actionArtFragmentToArtDetailsFragment())
+            findNavController().navigate(ArtFragmentDirections.actionArtFragmentToArtDetailsFragment())
         }
     }
 

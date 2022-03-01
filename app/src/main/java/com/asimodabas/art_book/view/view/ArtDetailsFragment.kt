@@ -19,7 +19,7 @@ class ArtDetailsFragment : Fragment(R.layout.fragment_art_detail) {
         fragmentBinding = binding
 
         binding.artImageView.setOnClickListener {
-            findNavController().navigate(com.asimodabas.art_book.view.ArtDetailsFragmentDirections.actionArtDetailsFragmentToImageAPIFragment())
+            findNavController().navigate(ArtDetailsFragmentDirections.actionArtDetailsFragmentToImageAPIFragment())
         }
 
         val callback = object : OnBackPressedCallback(true){
