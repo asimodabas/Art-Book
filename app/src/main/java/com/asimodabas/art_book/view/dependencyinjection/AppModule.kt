@@ -2,9 +2,12 @@ package com.asimodabas.art_book.view.dependencyinjection
 
 import android.content.Context
 import androidx.room.Room
+import com.asimodabas.art_book.R
 import com.asimodabas.art_book.view.api.RetrofitAPI
 import com.asimodabas.art_book.view.roomdb.ArtDatabase
 import com.asimodabas.art_book.view.util.Util.BASE_URL
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -41,4 +44,10 @@ object AppModule {
             .create(RetrofitAPI::class.java)
     }
 
+    @Singleton
+    @Provides
+    fun injectGlide(@ApplicationContext context: Context) = Glide.with(context)
+        .setDefaultRequestOptions(RequestOptions()
+            .placeholder(R.drawable.ic_launcher_foreground)
+            .error(R.drawable.ic_launcher_foreground))
 }
