@@ -14,66 +14,66 @@ import java.lang.Exception
 import javax.inject.Inject
 
 class ArtViewModel @ViewModelInject constructor(
-private val repository : ArtRepositoryInterface
-) :ViewModel() {
+    private val repository: ArtRepositoryInterface
+) : ViewModel() {
 
     //For Art Fragment
     val artList = repository.getArt()
 
     //For ImageApi Fragment
     private val images = MutableLiveData<Resource<ImageResponse>>()
-    val imageList : LiveData<Resource<ImageResponse>>
-    get() = images
+    val imageList: LiveData<Resource<ImageResponse>>
+        get() = images
 
     private val selectedImage = MutableLiveData<String>()
-    val selectedImageURL : LiveData<String>
-    get() = selectedImage
+    val selectedImageURL: LiveData<String>
+        get() = selectedImage
 
     private var insertArtMsg = MutableLiveData<Resource<Art>>()
-    val insertArtMessage : LiveData<Resource<Art>>
-    get() = insertArtMsg
+    val insertArtMessage: LiveData<Resource<Art>>
+        get() = insertArtMsg
 
-    fun resetInsertArtMessage (){
+    fun resetInsertArtMessage() {
         insertArtMsg = MutableLiveData<Resource<Art>>()
     }
 
-    fun setSelectedImage(url : String){
+    fun setSelectedImage(url: String) {
         selectedImage.postValue(url)
     }
 
-    fun deleteARt(art:Art) = viewModelScope.launch{
+    fun deleteARt(art: Art) = viewModelScope.launch {
         repository.deleteArt(art)
     }
 
-    fun insertArt(art: Art) = viewModelScope.launch{
+    fun insertArt(art: Art) = viewModelScope.launch {
         repository.insertArt(art)
     }
 
-    fun makeArt(name:String,artistName:String,year:String){
-        if (name.isEmpty() || artistName.isEmpty() || year.isEmpty()){
-            insertArtMsg.postValue(Resource.error("Please fill in the blanks",null))
+    fun makeArt(name: String, artistName: String, year: String) {
+        if (name.isEmpty() || artistName.isEmpty() || year.isEmpty()) {
+            insertArtMsg.postValue(Resource.error("Please fill in the blanks", null))
             return
         }
         val yearInt = try {
             year.toInt()
-        }catch (e:Exception){
-            insertArtMsg.postValue(Resource.error("Please enter the number",null))
+        } catch (e: Exception) {
+            insertArtMsg.postValue(Resource.error("Please enter the number", null))
             return
         }
-        val art = Art(name,artistName,yearInt,selectedImage.value?:"")
+        val art = Art(name, artistName, yearInt, selectedImage.value ?: "")
         insertArt(art)
         setSelectedImage("")
         insertArtMsg.postValue(Resource.success(art))
     }
 
-    fun searchImage(searchString: String){
-        if (searchString.isEmpty()){
+    fun searchImage(searchString: String) {
+        if (searchString.isEmpty()) {
             return
         }
         images.value = Resource.loading(null)
         viewModelScope.launch {
             val response = repository.searchImage(searchString)
-            images.value=response
+            images.value = response
         }
     }
 

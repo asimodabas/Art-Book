@@ -9,7 +9,7 @@ import com.asimodabas.art_book.databinding.FragmentArtsBinding
 
 class ArtFragment : Fragment(R.layout.fragment_arts) {
 
-    private var fragmentBinding : FragmentArtsBinding?=null
+    private var fragmentBinding: FragmentArtsBinding? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
