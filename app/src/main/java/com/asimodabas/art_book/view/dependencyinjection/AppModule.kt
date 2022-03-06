@@ -1,9 +1,13 @@
 package com.asimodabas.art_book.view.dependencyinjection
 
 import android.content.Context
+import androidx.room.Dao
 import androidx.room.Room
 import com.asimodabas.art_book.R
 import com.asimodabas.art_book.view.api.RetrofitAPI
+import com.asimodabas.art_book.view.repo.ArtRepository
+import com.asimodabas.art_book.view.repo.ArtRepositoryInterface
+import com.asimodabas.art_book.view.roomdb.ArtDao
 import com.asimodabas.art_book.view.roomdb.ArtDatabase
 import com.asimodabas.art_book.view.util.Util.BASE_URL
 import com.bumptech.glide.Glide
@@ -43,6 +47,10 @@ object AppModule {
             .build()
             .create(RetrofitAPI::class.java)
     }
+
+    @Singleton
+    @Provides
+    fun injectNormalRepo(dao : ArtDao,api : RetrofitAPI) = ArtRepository(dao,api) as ArtRepositoryInterface
 
     @Singleton
     @Provides
