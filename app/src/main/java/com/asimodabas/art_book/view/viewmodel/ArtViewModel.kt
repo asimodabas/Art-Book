@@ -1,6 +1,5 @@
 package com.asimodabas.art_book.view.viewmodel
 
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -9,11 +8,13 @@ import com.asimodabas.art_book.view.model.ImageResponse
 import com.asimodabas.art_book.view.repo.ArtRepositoryInterface
 import com.asimodabas.art_book.view.roomdb.Art
 import com.asimodabas.art_book.view.util.Resource
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import java.lang.Exception
 import javax.inject.Inject
 
-class ArtViewModel @ViewModelInject constructor(
+@HiltViewModel                                                        //New add
+class ArtViewModel @Inject constructor(                               //@ViewModelInject --> @Inject
     private val repository: ArtRepositoryInterface
 ) : ViewModel() {
 
