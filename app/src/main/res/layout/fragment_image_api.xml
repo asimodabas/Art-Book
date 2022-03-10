@@ -5,6 +5,7 @@
     android:orientation="vertical">
 
     <ProgressBar
+        android:id="@+id/progesBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone" />
