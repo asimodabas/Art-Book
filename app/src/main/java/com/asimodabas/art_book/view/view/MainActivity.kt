@@ -2,6 +2,7 @@ package com.asimodabas.art_book.view.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.WindowManager
 import com.asimodabas.art_book.R
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -16,5 +17,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         supportFragmentManager.fragmentFactory = fragmentFactory
         setContentView(R.layout.activity_main)
+
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
     }
 }
