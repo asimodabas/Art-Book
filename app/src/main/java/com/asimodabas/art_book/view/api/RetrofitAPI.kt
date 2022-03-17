@@ -10,7 +10,7 @@ interface RetrofitAPI {
 
     @GET("/api/")
     suspend fun imageSearch(
-        @Query("q") searchQuery : String,
-        @Query("key") apiKey : String = API_KEY
-    ) : Response<ImageResponse>
+        @Query("q") searchQuery: String,
+        @Query("key") apiKey: String = API_KEY
+    ): Response<ImageResponse>
 }

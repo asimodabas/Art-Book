@@ -14,12 +14,12 @@ import com.bumptech.glide.RequestManager
 import javax.inject.Inject
 
 class ArtRecyclerAdapter @Inject constructor(
-    val glide:RequestManager
-) : RecyclerView.Adapter<ArtRecyclerAdapter.ArtViewHolder>(){
+    val glide: RequestManager
+) : RecyclerView.Adapter<ArtRecyclerAdapter.ArtViewHolder>() {
 
-    class ArtViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView)
+    class ArtViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
-    private val diffUtil = object : DiffUtil.ItemCallback<Art>(){
+    private val diffUtil = object : DiffUtil.ItemCallback<Art>() {
         override fun areItemsTheSame(oldItem: Art, newItem: Art): Boolean {
             return oldItem == newItem
         }
@@ -29,15 +29,15 @@ class ArtRecyclerAdapter @Inject constructor(
         }
     }
 
-    private val recyclerDiffer = AsyncListDiffer(this,diffUtil)
+    private val recyclerDiffer = AsyncListDiffer(this, diffUtil)
 
-    var arts :List<Art>
-    get() = recyclerDiffer.currentList
-    set(value) = recyclerDiffer.submitList(value)
+    var arts: List<Art>
+        get() = recyclerDiffer.currentList
+        set(value) = recyclerDiffer.submitList(value)
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArtViewHolder {
-        val view =LayoutInflater.from(parent.context).inflate(R.layout.art_row,parent,false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.art_row, parent, false)
         return ArtViewHolder(view)
     }
 
@@ -56,6 +56,6 @@ class ArtRecyclerAdapter @Inject constructor(
     }
 
     override fun getItemCount(): Int {
-       return arts.size
+        return arts.size
     }
 }
