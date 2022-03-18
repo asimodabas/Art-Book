@@ -10,7 +10,9 @@ class ArtViewmodelTest {
 
     @Before
     fun setup(){
-       // viewModel = ArtViewModel(ArtRepository())
+        //viewModel = ArtViewModel(ArtRepository())
     }
+
+
 
 }
