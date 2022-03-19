@@ -25,8 +25,8 @@ class ImageAPIFragment @Inject constructor(
     private val imageRecyclerAdapter: ImageRecyclerAdapter
 ) : Fragment(R.layout.fragment_image_api) {
 
-    lateinit var viewModel : ArtViewModel
-    private var fragmentBinding : FragmentImageApiBinding?=null
+    lateinit var viewModel: ArtViewModel
+    private var fragmentBinding: FragmentImageApiBinding? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -35,14 +35,14 @@ class ImageAPIFragment @Inject constructor(
         val binding = FragmentImageApiBinding.bind(view)
         fragmentBinding = binding
 
-        var job : Job? = null
+        var job: Job? = null
 
         binding.searchText.addTextChangedListener {
             job?.cancel()
             job = lifecycleScope.launch {
                 delay(1000)
                 it?.let {
-                    if (it.toString().isNotEmpty()){
+                    if (it.toString().isNotEmpty()) {
                         viewModel.searchImage(it.toString())
                     }
                 }
@@ -52,32 +52,32 @@ class ImageAPIFragment @Inject constructor(
         subscribeToObservers()
 
         binding.imageRecyclerView.adapter = imageRecyclerAdapter
-        binding.imageRecyclerView.layoutManager = GridLayoutManager(requireContext(),3)
+        binding.imageRecyclerView.layoutManager = GridLayoutManager(requireContext(), 3)
         imageRecyclerAdapter.setonItemClickListener {
             findNavController().popBackStack()
             viewModel.setSelectedImage(it)
         }
     }
 
-    fun subscribeToObservers(){
+    fun subscribeToObservers() {
         viewModel.imageList.observe(viewLifecycleOwner, Observer {
-            when(it.status){
+            when (it.status) {
 
                 Status.SUCCESS -> {
-                    val urls = it.data?.hits?.map {
-                        imageResult ->
+                    val urls = it.data?.hits?.map { imageResult ->
                         imageResult.previewURL
                     }
-                    imageRecyclerAdapter.images=urls?: listOf()
-                    fragmentBinding?.progesBar?.visibility=View.GONE
+                    imageRecyclerAdapter.images = urls ?: listOf()
+                    fragmentBinding?.progesBar?.visibility = View.GONE
                 }
                 Status.ERROR -> {
-                    Toast.makeText(requireContext(),it.message?:"Error",Toast.LENGTH_LONG).show()
-                    fragmentBinding?.progesBar?.visibility=View.GONE
+                    Toast.makeText(requireContext(), it.message ?: "Error", Toast.LENGTH_LONG)
+                        .show()
+                    fragmentBinding?.progesBar?.visibility = View.GONE
 
                 }
-                Status.LOADING ->{
-                    fragmentBinding?.progesBar?.visibility=View.VISIBLE
+                Status.LOADING -> {
+                    fragmentBinding?.progesBar?.visibility = View.VISIBLE
                 }
             }
         })
