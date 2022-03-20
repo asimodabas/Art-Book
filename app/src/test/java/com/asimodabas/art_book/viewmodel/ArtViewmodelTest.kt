@@ -42,12 +42,20 @@ class ArtViewmodelTest {
     fun `insert art without name return error`(){
 
 
+        viewModel.makeArt("","Da Vinci","1800")
+        val value = viewModel.insertArtMessage.getOrAwaitValueTest()
+        assertThat(value.status).isEqualTo(Status.ERROR)
+
 
     }
 
     @Test
     fun `insert art without artistName return error`(){
 
+
+        viewModel.makeArt("Mona Lisa","","1800")
+        val value = viewModel.insertArtMessage.getOrAwaitValueTest()
+        assertThat(value.status).isEqualTo(Status.ERROR)
 
 
     }
