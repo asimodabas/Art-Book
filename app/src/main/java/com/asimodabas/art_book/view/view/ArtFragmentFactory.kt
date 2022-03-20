@@ -22,6 +22,4 @@ class ArtFragmentFactory @Inject constructor(
             else -> super.instantiate(classLoader, className)
         }
     }
-
-
 }

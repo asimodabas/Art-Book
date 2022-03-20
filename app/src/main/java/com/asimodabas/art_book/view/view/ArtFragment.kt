@@ -38,7 +38,6 @@ class ArtFragment @Inject constructor(
                 val selectedArt = artRecyclerAdapter.arts[layoutPosition]
                 viewModel.deleteARt(selectedArt)
             }
-
         }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

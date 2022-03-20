@@ -15,10 +15,11 @@ import com.asimodabas.art_book.view.viewmodel.ArtViewModel
 import com.bumptech.glide.RequestManager
 import javax.inject.Inject
 
-class ArtDetailsFragment @Inject constructor(val glide: RequestManager) : Fragment(R.layout.fragment_art_detail) {
+class ArtDetailsFragment @Inject constructor(val glide: RequestManager) :
+    Fragment(R.layout.fragment_art_detail) {
 
-    lateinit var viewModel : ArtViewModel
-    private var fragmentBinding : FragmentArtDetailBinding?=null
+    lateinit var viewModel: ArtViewModel
+    private var fragmentBinding: FragmentArtDetailBinding? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -35,7 +36,7 @@ class ArtDetailsFragment @Inject constructor(val glide: RequestManager) : Fragme
         }
 
 
-        val callback = object : OnBackPressedCallback(true){
+        val callback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 findNavController().popBackStack()
             }
@@ -46,11 +47,12 @@ class ArtDetailsFragment @Inject constructor(val glide: RequestManager) : Fragme
             viewModel.makeArt(
                 binding.NameText.text.toString(),
                 binding.artistText.text.toString(),
-                binding.yearText.text.toString())
+                binding.yearText.text.toString()
+            )
         }
     }
 
-    private fun subscribeToObservers(){
+    private fun subscribeToObservers() {
         viewModel.selectedImageURL.observe(viewLifecycleOwner, Observer { url ->
             fragmentBinding?.let {
                 glide.load(url).into(it.artImageView)
@@ -58,16 +60,17 @@ class ArtDetailsFragment @Inject constructor(val glide: RequestManager) : Fragme
         })
 
         viewModel.insertArtMessage.observe(viewLifecycleOwner, Observer {
-            when(it.status){
-                Status.SUCCESS ->{
-                    Toast.makeText(requireContext(),"Success",Toast.LENGTH_SHORT).show()
+            when (it.status) {
+                Status.SUCCESS -> {
+                    Toast.makeText(requireContext(), "Success", Toast.LENGTH_SHORT).show()
                     findNavController().popBackStack()
                     viewModel.resetInsertArtMessage()
                 }
-                Status.ERROR ->{
-                    Toast.makeText(requireContext(),it.message ?:"Error",Toast.LENGTH_SHORT).show()
+                Status.ERROR -> {
+                    Toast.makeText(requireContext(), it.message ?: "Error", Toast.LENGTH_SHORT)
+                        .show()
                 }
-                Status.LOADING ->{
+                Status.LOADING -> {
 
                 }
             }
