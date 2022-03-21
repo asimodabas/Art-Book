@@ -49,14 +49,17 @@ class ArtDaoTest {
 
         val list = dao.observeArts().getOrAwaitValue()
         assertThat(list).contains(exampleArt)
-
     }
 
     @Test
     fun deleteArtTesting()= runBlockingTest{
 
+        val exampleArt = Art("Mona Lisa","Da Vinci",1700,"test.com",1)
+        dao.insertArt(exampleArt)
+        dao.deleteArt(exampleArt)
+
+        val list = dao.observeArts().getOrAwaitValue()
+        assertThat(list).doesNotContain(exampleArt)
+
     }
-
-
-
 }
