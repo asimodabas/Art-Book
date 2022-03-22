@@ -30,7 +30,7 @@ class FakeArtRepository : ArtRepositoryInterface {
         return Resource.success(ImageResponse(listOf(), 0, 0))
     }
 
-    private fun refreshData(){
+    private fun refreshData() {
 
         artsLiveData.postValue(arts)
 

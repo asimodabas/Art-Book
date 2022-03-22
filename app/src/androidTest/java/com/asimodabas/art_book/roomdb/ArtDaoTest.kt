@@ -24,27 +24,27 @@ class ArtDaoTest {
     @get:Rule
     var instantTaskExecutorRule = InstantTaskExecutorRule()
 
-    private lateinit var dao : ArtDao
-    private lateinit var database : ArtDatabase
+    private lateinit var dao: ArtDao
+    private lateinit var database: ArtDatabase
 
     @Before
-    fun setup(){
+    fun setup() {
         database = Room.inMemoryDatabaseBuilder(
-            ApplicationProvider.getApplicationContext(),ArtDatabase::class.java
+            ApplicationProvider.getApplicationContext(), ArtDatabase::class.java
         ).allowMainThreadQueries().build()
 
         dao = database.artDao()
     }
 
     @After
-    fun teardown(){
+    fun teardown() {
         database.close()
     }
 
     @Test
-    fun insertArtTesting() = runBlockingTest{
+    fun insertArtTesting() = runBlockingTest {
 
-        val exampleArt = Art("Mona Lisa","Da Vinci",1700,"test.com",1)
+        val exampleArt = Art("Mona Lisa", "Da Vinci", 1700, "test.com", 1)
         dao.insertArt(exampleArt)
 
         val list = dao.observeArts().getOrAwaitValue()
@@ -52,9 +52,9 @@ class ArtDaoTest {
     }
 
     @Test
-    fun deleteArtTesting()= runBlockingTest{
+    fun deleteArtTesting() = runBlockingTest {
 
-        val exampleArt = Art("Mona Lisa","Da Vinci",1700,"test.com",1)
+        val exampleArt = Art("Mona Lisa", "Da Vinci", 1700, "test.com", 1)
         dao.insertArt(exampleArt)
         dao.deleteArt(exampleArt)
 
