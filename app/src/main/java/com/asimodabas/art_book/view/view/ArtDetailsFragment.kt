@@ -35,7 +35,6 @@ class ArtDetailsFragment @Inject constructor(val glide: RequestManager) :
             findNavController().navigate(ArtDetailsFragmentDirections.actionArtDetailsFragmentToImageAPIFragment())
         }
 
-
         val callback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 findNavController().popBackStack()

@@ -52,7 +52,7 @@ class ArtDaoTest {
     }
 
     @Test
-    fun deleteArtTesting() = runBlockingTest {
+     fun deleteArtTesting() = runBlockingTest {
 
         val exampleArt = Art("Mona Lisa", "Da Vinci", 1700, "test.com", 1)
         dao.insertArt(exampleArt)
