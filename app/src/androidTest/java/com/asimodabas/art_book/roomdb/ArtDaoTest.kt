@@ -10,31 +10,47 @@ import com.asimodabas.art_book.view.roomdb.Art
 import com.asimodabas.art_book.view.roomdb.ArtDao
 import com.asimodabas.art_book.view.roomdb.ArtDatabase
 import com.google.common.truth.Truth.assertThat
+import dagger.hilt.android.testing.HiltAndroidRule
+import dagger.hilt.android.testing.HiltAndroidTest
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
+import javax.inject.Inject
+import javax.inject.Named
 
 @SmallTest
 @ExperimentalCoroutinesApi
+@HiltAndroidTest
 class ArtDaoTest {
 
     @get:Rule
     var instantTaskExecutorRule = InstantTaskExecutorRule()
 
+    @get:Rule
+    var hiltRule = HiltAndroidRule(this)
+
+    @Inject
+    @Named("testDatabase")
+    lateinit var database:ArtDatabase
+
     private lateinit var dao: ArtDao
-    private lateinit var database: ArtDatabase
 
     @Before
-    fun setup() {
-        database = Room.inMemoryDatabaseBuilder(
-            ApplicationProvider.getApplicationContext(), ArtDatabase::class.java
-        ).allowMainThreadQueries().build()
 
+    fun setup() {
+        /*
+       database = Room.inMemoryDatabaseBuilder(
+           ApplicationProvider.getApplicationContext(), ArtDatabase::class.java
+       ).allowMainThreadQueries().build()
+        */
+
+        hiltRule.inject()
         dao = database.artDao()
-    }
+   }
+
 
     @After
     fun teardown() {
