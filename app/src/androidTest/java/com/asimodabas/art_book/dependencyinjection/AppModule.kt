@@ -1,7 +1,6 @@
-package com.asimodabas.art_book.view.dependencyinjection
+package com.asimodabas.art_book.dependencyinjection
 
 import android.content.Context
-import androidx.room.Dao
 import androidx.room.Room
 import com.asimodabas.art_book.R
 import com.asimodabas.art_book.view.api.RetrofitAPI
