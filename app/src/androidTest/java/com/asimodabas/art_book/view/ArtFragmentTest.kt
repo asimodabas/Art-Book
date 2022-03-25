@@ -27,20 +27,20 @@ class ArtFragmentTest {
     var hiltRule = HiltAndroidRule(this)
 
     @Inject
-    lateinit var fragmentFactory : ArtFragmentFactory
+    lateinit var fragmentFactory: ArtFragmentFactory
 
     @Before
-    fun setup (){
+    fun setup() {
         hiltRule.inject()
     }
 
     @Test
-    fun testNavigationFromArtToArtDetails(){
+    fun testNavigationFromArtToArtDetails() {
 
         val navController = Mockito.mock(NavController::class.java)
 
         launchFragmentInHiltContainer<ArtFragment>(factory = fragmentFactory) {
-            Navigation.setViewNavController(requireView(),navController)
+            Navigation.setViewNavController(requireView(), navController)
         }
 
         Espresso.onView(ViewMatchers.withId(R.id.fab)).perform(click())
