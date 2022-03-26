@@ -74,7 +74,6 @@ class ArtDetailsFragment @Inject constructor(val glide: RequestManager) :
                 }
             }
         })
-
     }
 
     override fun onDestroyView() {

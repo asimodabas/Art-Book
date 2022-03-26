@@ -17,47 +17,46 @@ import org.junit.Test
 class ArtViewmodelTest {
 
     @get:Rule
-    var instantTaskExecutorRule=InstantTaskExecutorRule()
+    var instantTaskExecutorRule = InstantTaskExecutorRule()
 
     @get:Rule
-    var mainCoroutineRule=MainCoroutineRule()
+    var mainCoroutineRule = MainCoroutineRule()
 
-    private lateinit var viewModel : ArtViewModel
+    private lateinit var viewModel: ArtViewModel
 
     @Before
-    fun setup(){
+    fun setup() {
         viewModel = ArtViewModel(FakeArtRepository())
     }
 
     @Test
-    fun `insert art without year return error`(){
+    fun `insert art without year return error`() {
 
-        viewModel.makeArt("Mona Lisa","Da Vinci","")
+        viewModel.makeArt("Mona Lisa", "Da Vinci", "")
         val value = viewModel.insertArtMessage.getOrAwaitValueTest()
         assertThat(value.status).isEqualTo(Status.ERROR)
 
     }
 
     @Test
-    fun `insert art without name return error`(){
+    fun `insert art without name return error`() {
 
 
-        viewModel.makeArt("","Da Vinci","1800")
+        viewModel.makeArt("", "Da Vinci", "1800")
         val value = viewModel.insertArtMessage.getOrAwaitValueTest()
         assertThat(value.status).isEqualTo(Status.ERROR)
 
     }
 
     @Test
-    fun `insert art without artistName return error`(){
+    fun `insert art without artistName return error`() {
 
 
-        viewModel.makeArt("Mona Lisa","","1800")
+        viewModel.makeArt("Mona Lisa", "", "1800")
         val value = viewModel.insertArtMessage.getOrAwaitValueTest()
         assertThat(value.status).isEqualTo(Status.ERROR)
 
     }
-
 
 
 }

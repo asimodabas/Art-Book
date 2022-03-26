@@ -82,5 +82,4 @@ class ImageAPIFragment @Inject constructor(
             }
         })
     }
-
 }

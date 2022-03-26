@@ -34,7 +34,7 @@ class ArtDaoTest {
 
     @Inject
     @Named("testDatabase")
-    lateinit var database:ArtDatabase
+    lateinit var database: ArtDatabase
 
     private lateinit var dao: ArtDao
 
@@ -49,7 +49,7 @@ class ArtDaoTest {
 
         hiltRule.inject()
         dao = database.artDao()
-   }
+    }
 
 
     @After
@@ -68,7 +68,7 @@ class ArtDaoTest {
     }
 
     @Test
-     fun deleteArtTesting() = runBlockingTest {
+    fun deleteArtTesting() = runBlockingTest {
 
         val exampleArt = Art("Mona Lisa", "Da Vinci", 1700, "test.com", 1)
         dao.insertArt(exampleArt)
