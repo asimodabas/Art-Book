@@ -97,7 +97,7 @@ dependencies {
     testImplementation "org.mockito:mockito-core:2.25.0"
 
     // Android Test Implementations
-    androidTestImplementation "com.linkedin.dexmaker:dexmaker-mockito:2.12.1"
+    //androidTestImplementation "com.linkedin.dexmaker:dexmaker-mockito:2.12.1"
     androidTestImplementation 'com.google.android.apps.common.testing.accessibility.framework:accessibility-test-framework:3.1.2'
     androidTestImplementation "junit:junit:4.13.2"
     androidTestImplementation "org.mockito:mockito-android:2.25.0"
