@@ -97,7 +97,6 @@ class ArtDetailsFragmentTest {
         assertThat(testViewModel.artList.getOrAwaitValue()).contains(
             Art("Mona Lisa","Da Vinci",1500,"")
         )
-
     }
 
 
