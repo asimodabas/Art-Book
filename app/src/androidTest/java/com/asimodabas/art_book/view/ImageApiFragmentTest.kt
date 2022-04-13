@@ -9,12 +9,14 @@ import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.filters.MediumTest
 import com.asimodabas.art_book.R
+import com.asimodabas.art_book.getOrAwaitValue
 import com.asimodabas.art_book.launchFragmentInHiltContainer
 import com.asimodabas.art_book.repo.FakeArtRepositoryTest
 import com.asimodabas.art_book.view.adapter.ImageRecyclerAdapter
 import com.asimodabas.art_book.view.view.ArtFragmentFactory
 import com.asimodabas.art_book.view.view.ImageAPIFragment
 import com.asimodabas.art_book.view.viewmodel.ArtViewModel
+import com.google.common.truth.Truth.assertThat
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -45,8 +47,9 @@ class ImageApiFragmentTest {
 
     @Test
     fun selectImage(){
-        val navController = Mockito.mock(NavController::class.java)
 
+        val navController = Mockito.mock(NavController::class.java)
+        val selectedImageUrl = "asimodabas.com"
         val testViewModel = ArtViewModel(FakeArtRepositoryTest())
 
         launchFragmentInHiltContainer<ImageAPIFragment>(
@@ -54,6 +57,7 @@ class ImageApiFragmentTest {
         ){
             Navigation.setViewNavController(requireView(),navController)
             viewModel =testViewModel
+            imageRecyclerAdapter.images = listOf(selectedImageUrl)
         }
 
         Espresso.onView(withId(R.id.imageRecyclerView)).perform(
@@ -61,6 +65,8 @@ class ImageApiFragmentTest {
                 0,click()
             )
         )
+        Mockito.verify(navController).popBackStack()
+        assertThat(testViewModel.selectedImageURL.getOrAwaitValue()).isEqualTo(selectedImageUrl)
     }
 
 }

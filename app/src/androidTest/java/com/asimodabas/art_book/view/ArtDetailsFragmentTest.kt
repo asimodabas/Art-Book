@@ -36,13 +36,13 @@ class ArtDetailsFragmentTest {
     var hiltRule = HiltAndroidRule(this)
 
     @get:Rule
-    var instantTextExecutorRule =InstantTaskExecutorRule()
+    var instantTextExecutorRule = InstantTaskExecutorRule()
 
     @Inject
-    lateinit var fragmentFactory :ArtFragmentFactory
+    lateinit var fragmentFactory: ArtFragmentFactory
 
     @Before
-    fun setup(){
+    fun setup() {
         hiltRule.inject()
     }
 
@@ -54,8 +54,8 @@ class ArtDetailsFragmentTest {
 
         launchFragmentInHiltContainer<ArtDetailsFragment>(
             factory = fragmentFactory
-        ){
-            Navigation.setViewNavController(requireView(),navController)
+        ) {
+            Navigation.setViewNavController(requireView(), navController)
         }
 
         Espresso.onView(ViewMatchers.withId(R.id.artImageView)).perform(click())
@@ -66,13 +66,13 @@ class ArtDetailsFragmentTest {
     }
 
     @Test
-    fun testOnBackPressed(){
+    fun testOnBackPressed() {
         val navController = Mockito.mock(NavController::class.java)
 
         launchFragmentInHiltContainer<ArtDetailsFragment>(
             factory = fragmentFactory
-        ){
-            Navigation.setViewNavController(requireView(),navController)
+        ) {
+            Navigation.setViewNavController(requireView(), navController)
         }
 
         Espresso.pressBack()
@@ -81,11 +81,11 @@ class ArtDetailsFragmentTest {
     }
 
     @Test
-    fun testSave(){
+    fun testSave() {
         val testViewModel = ArtViewModel(FakeArtRepositoryTest())
         launchFragmentInHiltContainer<ArtDetailsFragment>(
             factory = fragmentFactory
-        ){
+        ) {
             viewModel = testViewModel
         }
 
@@ -95,7 +95,7 @@ class ArtDetailsFragmentTest {
         Espresso.onView(withId(R.id.saveButton)).perform(click())
 
         assertThat(testViewModel.artList.getOrAwaitValue()).contains(
-            Art("Mona Lisa","Da Vinci",1500,"")
+            Art("Mona Lisa", "Da Vinci", 1500, "")
         )
     }
 
