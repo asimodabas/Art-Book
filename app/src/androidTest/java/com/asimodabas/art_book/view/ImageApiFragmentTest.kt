@@ -41,12 +41,12 @@ class ImageApiFragmentTest {
     lateinit var fragmentFactory: ArtFragmentFactory
 
     @Before
-    fun setup (){
+    fun setup() {
         hiltRule.inject()
     }
 
     @Test
-    fun selectImage(){
+    fun selectImage() {
 
         val navController = Mockito.mock(NavController::class.java)
         val selectedImageUrl = "asimodabas.com"
@@ -54,15 +54,15 @@ class ImageApiFragmentTest {
 
         launchFragmentInHiltContainer<ImageAPIFragment>(
             factory = fragmentFactory
-        ){
-            Navigation.setViewNavController(requireView(),navController)
-            viewModel =testViewModel
+        ) {
+            Navigation.setViewNavController(requireView(), navController)
+            viewModel = testViewModel
             imageRecyclerAdapter.images = listOf(selectedImageUrl)
         }
 
         Espresso.onView(withId(R.id.imageRecyclerView)).perform(
             RecyclerViewActions.actionOnItemAtPosition<ImageRecyclerAdapter.ImageViewHolder>(
-                0,click()
+                0, click()
             )
         )
         Mockito.verify(navController).popBackStack()
