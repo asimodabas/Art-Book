@@ -43,7 +43,7 @@ class ImageAPIFragment @Inject constructor(
                 delay(1000)
                 it?.let {
                     if (it.toString().isNotEmpty()) {
-                        viewModel.searchImage(it.toString())
+                        viewModel.searchForImage(it.toString())
                     }
                 }
             }

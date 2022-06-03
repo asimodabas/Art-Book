@@ -36,7 +36,7 @@ class ArtFragment @Inject constructor(
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 val layoutPosition = viewHolder.layoutPosition
                 val selectedArt = artRecyclerAdapter.arts[layoutPosition]
-                viewModel.deleteARt(selectedArt)
+                viewModel.deleteArt(selectedArt)
             }
         }
 
