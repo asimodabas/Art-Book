@@ -1,4 +1,5 @@
 package com.asimodabas.art_book.view.viewmodel
+
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -12,21 +13,21 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class ArtViewModel @ViewModelInject constructor(
-    private val repository : ArtRepositoryInterface
+    private val repository: ArtRepositoryInterface
 ) : ViewModel() {
 
     val artList = repository.getArt()
 
     private val images = MutableLiveData<Resource<ImageResponse>>()
-    val imageList : LiveData<Resource<ImageResponse>>
+    val imageList: LiveData<Resource<ImageResponse>>
         get() = images
 
     private val selectedImage = MutableLiveData<String>()
-    val selectedImageUrl : LiveData<String>
+    val selectedImageUrl: LiveData<String>
         get() = selectedImage
 
     private var insertArtMsg = MutableLiveData<Resource<Art>>()
-    val insertArtMessage : LiveData<Resource<Art>>
+    val insertArtMessage: LiveData<Resource<Art>>
         get() = insertArtMsg
 
     //Solving the navigation bug
@@ -34,7 +35,7 @@ class ArtViewModel @ViewModelInject constructor(
         insertArtMsg = MutableLiveData<Resource<Art>>()
     }
 
-    fun setSelectedImage(url : String) {
+    fun setSelectedImage(url: String) {
         selectedImage.postValue(url)
     }
 
@@ -46,27 +47,27 @@ class ArtViewModel @ViewModelInject constructor(
         repository.insertArt(art)
     }
 
-    fun makeArt(name : String, artistName : String, year : String) {
-        if (name.isEmpty() || artistName.isEmpty() || year.isEmpty() ) {
+    fun makeArt(name: String, artistName: String, year: String) {
+        if (name.isEmpty() || artistName.isEmpty() || year.isEmpty()) {
             insertArtMsg.postValue(Resource.error("Enter name, artist, year", null))
             return
         }
         val yearInt = try {
             year.toInt()
         } catch (e: Exception) {
-            insertArtMsg.postValue(Resource.error("Year should be number",null))
+            insertArtMsg.postValue(Resource.error("Year should be number", null))
             return
         }
 
-        val art = Art(name, artistName, yearInt,selectedImage.value?: "")
+        val art = Art(name, artistName, yearInt, selectedImage.value ?: "")
         insertArt(art)
         setSelectedImage("")
         insertArtMsg.postValue(Resource.success(art))
     }
 
-    fun searchForImage (searchString : String) {
+    fun searchForImage(searchString: String) {
 
-        if(searchString.isEmpty()) {
+        if (searchString.isEmpty()) {
             return
         }
         images.value = Resource.loading(null)

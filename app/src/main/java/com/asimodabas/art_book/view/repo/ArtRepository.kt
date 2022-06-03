@@ -10,9 +10,9 @@ import retrofit2.Response
 import java.lang.Exception
 import javax.inject.Inject
 
-class ArtRepository @Inject constructor (
-    private val artDao : ArtDao,
-    private val retrofitApi : RetrofitAPI
+class ArtRepository @Inject constructor(
+    private val artDao: ArtDao,
+    private val retrofitApi: RetrofitAPI
 ) : ArtRepositoryInterface {
 
     override suspend fun insertArt(art: Art) {
@@ -33,12 +33,12 @@ class ArtRepository @Inject constructor (
             if (response.isSuccessful) {
                 response.body()?.let {
                     return@let Resource.success(it)
-                } ?: Resource.error("Error",null)
+                } ?: Resource.error("Error", null)
             } else {
-                Resource.error("Error",null)
+                Resource.error("Error", null)
             }
         } catch (e: Exception) {
-            Resource.error("No data!",null)
+            Resource.error("No data!", null)
         }
     }
 

@@ -31,8 +31,6 @@ class FakeArtRepository : ArtRepositoryInterface {
     }
 
     private fun refreshData() {
-
         artsLiveData.postValue(arts)
-
     }
 }

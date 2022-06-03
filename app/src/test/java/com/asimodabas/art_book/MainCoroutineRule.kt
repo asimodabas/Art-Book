@@ -25,5 +25,4 @@ class MainCoroutineRule(
         cleanupTestCoroutines()
         Dispatchers.resetMain()
     }
-
 }

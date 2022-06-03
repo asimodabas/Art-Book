@@ -76,6 +76,5 @@ class ArtDaoTest {
 
         val list = dao.observeArts().getOrAwaitValue()
         assertThat(list).doesNotContain(exampleArt)
-
     }
 }
