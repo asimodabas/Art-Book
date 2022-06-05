@@ -41,6 +41,4 @@ class ArtRepository @Inject constructor(
             Resource.error("No data!", null)
         }
     }
-
-
 }

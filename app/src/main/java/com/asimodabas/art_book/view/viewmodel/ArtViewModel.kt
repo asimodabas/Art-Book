@@ -76,5 +76,4 @@ class ArtViewModel @ViewModelInject constructor(
             images.value = response
         }
     }
-
 }

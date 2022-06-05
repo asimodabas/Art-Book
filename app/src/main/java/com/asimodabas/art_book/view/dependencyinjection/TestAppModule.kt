@@ -57,5 +57,4 @@ object AppModule {
             RequestOptions().placeholder(R.drawable.ic_launcher_foreground)
                 .error(R.drawable.ic_launcher_foreground)
         )
-
 }

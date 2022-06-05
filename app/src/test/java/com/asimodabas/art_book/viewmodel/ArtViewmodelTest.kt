@@ -52,5 +52,4 @@ class ArtViewmodelTest {
         val value = viewModel.insertArtMessage.getOrAwaitValueTest()
         assertThat(value.status).isEqualTo(Status.ERROR)
     }
-
 }
