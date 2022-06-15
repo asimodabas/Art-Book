@@ -28,10 +28,18 @@ Android Test Libraries Used
 * [Espresso][1] - This guide covers installing Espresso using the SDK Manager and building it using Gradle.
 * [Dagger-Hilt][8] - Hilt is the recommended solution for dependency injection in Android apps, and works seamlessly with Compose.
 
-App GIF
+App Images
 --------------
 <p align="center">
   
+  <img src="https://user-images.githubusercontent.com/71982171/173886988-9b506f78-512e-4e9e-9ccd-5d4d87ff19e2.png" alt="GIF" />
+  <img src="https://user-images.githubusercontent.com/71982171/173886961-cd59fad4-c482-457c-9dd6-a94cd889c7f1.png" alt="GIF" />
+  <img src="https://user-images.githubusercontent.com/71982171/173886966-1050541f-e004-4723-b4a0-2defe146a36d.png" alt="GIF" />
+  <img src="https://user-images.githubusercontent.com/71982171/173886969-b4a7ba7c-de60-4353-b2a3-c4985937cc7b.png" alt="GIF" />
+  <img src="https://user-images.githubusercontent.com/71982171/173886977-7b1a9f70-7665-4f48-883f-1d77b20ab0ed.png" alt="GIF" />
+  <img src="https://user-images.githubusercontent.com/71982171/173886982-5a30465a-f34f-4cb6-9d9e-eddb77ce4451.png" alt="GIF" />
+  <img src="https://user-images.githubusercontent.com/71982171/173886986-3a28c557-16d1-49e2-809a-2446013e449e.png" alt="GIF" />
+
 </p>
 
 
