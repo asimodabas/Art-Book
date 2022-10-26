@@ -25,4 +25,4 @@ data class ImageResult(
     val userImageURL: String,
     val previewHeight: Int,
     val previewURL: String,
-    )
+)

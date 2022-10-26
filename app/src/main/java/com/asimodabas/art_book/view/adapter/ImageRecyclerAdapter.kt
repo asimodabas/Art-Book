@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.asimodabas.art_book.R
-import com.asimodabas.art_book.view.roomdb.Art
 import com.bumptech.glide.RequestManager
 import javax.inject.Inject
 

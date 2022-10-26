@@ -1,8 +1,8 @@
 package com.asimodabas.art_book.view.view
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
+import androidx.appcompat.app.AppCompatActivity
 import com.asimodabas.art_book.R
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject

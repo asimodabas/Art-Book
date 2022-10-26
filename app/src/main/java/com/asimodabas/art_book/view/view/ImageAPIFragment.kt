@@ -15,7 +15,6 @@ import com.asimodabas.art_book.databinding.FragmentImageApiBinding
 import com.asimodabas.art_book.view.adapter.ImageRecyclerAdapter
 import com.asimodabas.art_book.view.util.Status
 import com.asimodabas.art_book.view.viewmodel.ArtViewModel
-import com.bumptech.glide.RequestManager
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch

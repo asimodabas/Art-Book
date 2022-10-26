@@ -6,8 +6,6 @@ import com.asimodabas.art_book.view.model.ImageResponse
 import com.asimodabas.art_book.view.roomdb.Art
 import com.asimodabas.art_book.view.roomdb.ArtDao
 import com.asimodabas.art_book.view.util.Resource
-import retrofit2.Response
-import java.lang.Exception
 import javax.inject.Inject
 
 class ArtRepository @Inject constructor(
