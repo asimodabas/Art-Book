@@ -31,7 +31,6 @@ Test Libraries Used
 App Images
 --------------
 <p align="center">
-  
   <img src="https://user-images.githubusercontent.com/71982171/173886988-9b506f78-512e-4e9e-9ccd-5d4d87ff19e2.png" alt="GIF" />
   <img src="https://user-images.githubusercontent.com/71982171/173886961-cd59fad4-c482-457c-9dd6-a94cd889c7f1.png" alt="GIF" />
   <img src="https://user-images.githubusercontent.com/71982171/173886966-1050541f-e004-4723-b4a0-2defe146a36d.png" alt="GIF" />
@@ -39,8 +38,29 @@ App Images
   <img src="https://user-images.githubusercontent.com/71982171/173886977-7b1a9f70-7665-4f48-883f-1d77b20ab0ed.png" alt="GIF" />
   <img src="https://user-images.githubusercontent.com/71982171/173886982-5a30465a-f34f-4cb6-9d9e-eddb77ce4451.png" alt="GIF" />
   <img src="https://user-images.githubusercontent.com/71982171/173886986-3a28c557-16d1-49e2-809a-2446013e449e.png" alt="GIF" />
-
 </p>
+
+MIT License
+
+Copyright (c) 2023 Asım Odabaş
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
 [1]: https://developer.android.com/training/testing/espresso
 [2]: https://developer.android.com/jetpack/compose/lifecycle
